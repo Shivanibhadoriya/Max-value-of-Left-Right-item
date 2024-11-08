@@ -17,6 +17,10 @@ function createMatrix(){
         alert("Please fill out this field");
         return;
     }
+    else if(rows <0 || cols < 0){
+        alert("Row and Columns Number should be greater than 0");
+        return;
+    }
     else if(rows > 30 || cols > 30){
         alert("Kindly reduce the Number of rows or column");
     }
