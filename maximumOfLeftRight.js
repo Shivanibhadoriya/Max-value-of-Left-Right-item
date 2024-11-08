@@ -28,7 +28,7 @@ function createMatrix(){
     
     matrixBox.innerHTML="";
     matrixBox.style.display="grid";
-    matrixBox.style.gridTemplateColumns=`repeat(${cols},30px)`;
+    matrixBox.style.gridTemplateColumns=`repeat(${cols},100px)`;
 
     for(let j=0;j<rows;j++){
         for(let i=0;i<cols;i++){
