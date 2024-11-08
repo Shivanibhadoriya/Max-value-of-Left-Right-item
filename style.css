@@ -4,13 +4,13 @@
 }
 
 
-.container{
-   max-width:1000px;
+/* .container{
+   
    margin:20px auto;
    border:1px solid black;
    padding:10px;
    border-radius:5px;
-}
+} */
 
 .container1{
     display: flex;
@@ -26,6 +26,7 @@
     display: flex;
     padding:10px;
 }
+
 
 .enter{
     align-items: center;
@@ -51,20 +52,13 @@
 .container2{
     margin:20px;
     display:none;
-    row-gap:2px;
+    row-gap:4px;
     column-gap:6px;
    align-items: center;
    justify-content: center;
     
 }
 
-
-.box{
-    height:30px;
-    width:30px;
-    border:0px;
-    background-color:rgb(157, 157, 224);
-}
 
 input[type="number"]::-webkit-outer-spin-button,input[type="number"]::-webkit-inner-spin-button{
     -webkit-appearance:none;
@@ -94,13 +88,18 @@ input[type="number"]::-webkit-outer-spin-button,input[type="number"]::-webkit-in
     padding-left:30px;
 }
 
-.error-msg{
-    display:none;
-    color:red;
-    padding:10px 0px;
-    font-weight: 550;
+#matrix-container input{
+    border:none;
+    transition:width 0.5s ease , height 0.5s ease;
+    height:24px;
+    border-radius:2px;
 }
 
-.error-msg svg{
-    height:20px;
+
+#matrix-container input:hover{
+    border: 2px solid rgb(239, 170, 113);
+   z-index:2;
+    width:120px;
+    height:28px;
+    box-shadow:1px 2px 5px 2px #ffbd81;
 }

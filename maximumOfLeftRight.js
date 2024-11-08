@@ -3,7 +3,6 @@ let rows;
 let cols;
 let matrixBox = document.getElementById("matrix-container");
 let answerBox = document.querySelector(".answer-box");
-let errorBox = document.querySelector(".error-msg");
 let leftVal = document.querySelector(".left-ans span");
 let rightVal = document.querySelector(".right-ans span");
 
@@ -18,7 +17,7 @@ function createMatrix(){
         alert("Please fill out this field");
         return;
     }
-    else if(rows > 25 || cols > 25){
+    else if(rows > 30 || cols > 30){
         alert("Kindly reduce the Number of rows or column");
     }
 
@@ -47,12 +46,11 @@ function getAnswer(){
     for(let j=0;j<rows;j++){
         matrix[j]=[];
         for(let i=0;i<cols;i++){
-           data = document.getElementById("box-"+j+"-"+i).value;
-           if(data == ""){
-            errorBox.style.display="block";
-            return;
+           matrix[j][i] = parseInt(document.getElementById("box-"+j+"-"+i).value);
+           if(Number.isNaN(matrix[j][i] )){
+              matrix[j][i] = undefined;
+              continue;
            }
-           matrix[j][i] = Number(data);
            if(matrix[j][i] > max){
               max = matrix[j][i];
               maxRowIn = j;
@@ -64,14 +62,14 @@ function getAnswer(){
     answerBox.style.display="block";
     leftVal.innerHTML="There is no Element in left";
     rightVal.innerHTML="There is no Element in right";
-    if(maxColIn != 0){
+    
+    if(maxColIn != 0 && matrix[maxRowIn][maxColIn-1] !== undefined){
         leftVal.innerHTML = matrix[maxRowIn][maxColIn-1]+"";
     }
-    if(maxColIn != cols-1){
+
+    if(maxColIn != cols-1 && matrix[maxRowIn][maxColIn+1] !== undefined){
         rightVal.innerHTML = matrix[maxRowIn][maxColIn+1]+"";
     }
 
 }
 
-
-matrixBox.addEventListener("click",() => errorBox.style.display="none");
